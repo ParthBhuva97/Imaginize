@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Hero2 from "./Hero2";
+import Footer from './Footer';
 import { FcAddImage } from "react-icons/fc";
-import { PiMagicWandDuotone } from 'react-icons/pi';
-import { GiMagicHat } from 'react-icons/gi';
+import { PiMagicWandDuotone } from "react-icons/pi";
+import { GiMagicHat } from "react-icons/gi";
 import CircleLoader from "./../../node_modules/react-spinners/esm/CircleLoader";
 
 const GetImage2 = () => {
@@ -30,7 +31,9 @@ const GetImage2 = () => {
     //     method: "POST",
     //   }
     // );
-    const response = await fetch("https://image.pollinations.ai/prompt/"+prompt)
+    const response = await fetch(
+      "https://image.pollinations.ai/prompt/" + prompt
+    );
     const data = await response.blob();
 
     console.log(data);
@@ -50,7 +53,7 @@ const GetImage2 = () => {
               Unleash Creativity!
             </div>
             <div className="font-subHeader text-white text-xl">
-              Welcome to the Framer AI-powered platform! Discover limitless
+              Welcome to the AI-powered platform! Discover limitless
               possibilities to generate breathtaking images using
               state-of-the-art technology. Just a few steps and your ideas will
               transform into visual spectacles.
@@ -59,7 +62,9 @@ const GetImage2 = () => {
         </div>
         <div className="w-full mt-10 py-10 flex flex-col items-center justify-center">
           <div className="w-[90%] lg:w-[55%] font-header2 text-center text-[2rem] lg:text-[3rem] text-teal-500">
-            Ready to start? Enter your prompt below! <PiMagicWandDuotone className="inline"/> <GiMagicHat className="inline" />
+            Ready to start? Enter your prompt below!{" "}
+            <PiMagicWandDuotone className="inline" />{" "}
+            <GiMagicHat className="inline" />
           </div>
           <div className="w-[80%] flex justify-center p-10">
             <div className="hidden w-[70%] md:flex items-center justify-between bg-white border border-gray-300 rounded-lg py-2 px-4 ring-2 ring-offset-8 ring-blue-500 ">
@@ -128,6 +133,64 @@ const GetImage2 = () => {
               </div>
             )}
           </div>
+        </div>
+        <div className="cards mt-10 bg-black flex items-center justify-center">
+          <div className="w-[70%] lg:h-96 flex flex-col lg:grid grid-cols-3 gap-10">
+            <div className="rounded-3xl bg-[#0d0d0d] flex items-start justify-between flex-col">
+              <div className="about">
+                <div className="p-10 w-full">
+                  <img
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="https://framerusercontent.com/images/AsH6Ju49a4D9586br57cczPXI.jpg?scale-down-to=512"
+                    alt="Rounded avatar"
+                  />
+                </div>
+                <div className="px-10 text-white text-xl w-full font-subHeader">
+                  Imaginize blew my mind!
+                </div>
+              </div>
+              <div className="p-10 text-white text-md w-full font-subHeader">
+                John Parker
+              </div>
+            </div>
+            <div className="rounded-3xl bg-[#0d0d0d] flex items-start justify-between flex-col">
+              <div className="about">
+                <div className="p-10 w-full">
+                  <img
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="https://framerusercontent.com/images/mqjZUMwI5vwxD6Vw7Q7IavHW7Fg.jpg?scale-down-to=512"
+                    alt="Rounded avatar"
+                  />
+                </div>
+                <div className="px-10 text-white text-xl w-full font-subHeader">
+                  Best Image Generation Tool ever!
+                </div>
+              </div>
+              <div className="p-10 text-white text-md w-full font-subHeader">
+                Olivia Smith
+              </div>
+            </div>
+            <div className="rounded-3xl bg-[#0d0d0d] flex items-start justify-between flex-col">
+              <div className="about">
+                <div className="p-10 w-full">
+                  <img
+                    class="w-12 h-12 rounded-full object-cover"
+                    src="https://framerusercontent.com/images/4Ek6RyK1M6W4EKMeAt75KdyK1oA.jpg?scale-down-to=512"
+                    alt="Rounded avatar"
+                  />
+                </div>
+                <div className="px-10 text-white text-xl w-full font-subHeader">
+                  I'm never going back to manual design.
+                </div>
+              </div>
+              <div className="p-10 text-white text-md w-full font-subHeader">
+                Tom Richardson
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-[-50px] pb-10">
+        <Footer/>
         </div>
       </div>
     </div>

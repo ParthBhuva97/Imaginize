@@ -8,7 +8,7 @@ export default {
     extend: {
     },
     fontFamily:{
-      header : ['Wix Madefor Display', 'sans-serif'],
+      header : ['Elsie', 'cursive'],
       subHeader : ['Albert Sans', 'sans-serif'],
       header2 : ['Elsie', 'cursive']
     },
