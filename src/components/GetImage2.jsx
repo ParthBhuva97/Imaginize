@@ -112,7 +112,7 @@ const GetImage2 = () => {
           </div>
         </div>
         <div className="w-full h-[20rem] md:h-[37.5rem] flex items-center justify-center mb-10">
-          <div className="md:w-[80%] h-[100%] bg-gradient-to-tl from-black to-teal-900 flex items-center justify-center rounded-lg">
+          <div className="md:w-[80%] h-[100%] bg-gradient-to-tl from-black to-teal-900 flex items-center justify-center rounded-lg overflow-hidden">
             {isLoading ? (
               <CircleLoader color="#36d7b7" />
             ) : imageUrl ? (
