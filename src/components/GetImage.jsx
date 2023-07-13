@@ -1,24 +1,30 @@
 import React, { useState } from "react";
-import { Audio } from "react-loader-spinner";
 import { FcAddImage } from "react-icons/fc";
+import CircleLoader from './../../node_modules/react-spinners/esm/CircleLoader';
 
 const GetImage = () => {
-  const [url, setUrl] = useState("");
+  const [prompt, setPrompt] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   function handleChange(e) {
-    const string = e.target.value;
-    const prompt = string.replace(/ /g, "%20");
-    setUrl("https://image.pollinations.ai/prompt/" + prompt);
+    setPrompt(e.target.value);
   }
 
-  console.log(url);
+  console.log(prompt);
 
-  async function getImage(url) {
+  async function getImage(prompt) {
     console.log("Clicked");
     setLoading(true);
-    const response = await fetch(url);
+    const response = await fetch("https://e934-34-147-114-46.ngrok-free.app/generate_image",
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({ 'prompt' : prompt }),
+        method: 'POST',
+      });
     const data = await response.blob();
 
     console.log(data);
@@ -27,11 +33,11 @@ const GetImage = () => {
     setLoading(false);
   }
   return (
-    <div className="w-full bg-black grid place-items-center pt-[5rem] gap-0">
+    <div className="w-full h-screen md:h-auto bg-black grid place-items-center pt-[5rem] gap-0">
       <div className="grid grid-rows-2 w-[70%] h-fit">
         <div className="font-header text-[#00A896] text-[1.5rem] lg:text-[4rem] text-left">
-          <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#00A896] relative inline-block">
-            <span class="relative text-white">Generate Images</span>
+          <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#00A896] relative inline-block">
+            <span className="relative text-white">Generate Images</span>
           </span>
         </div>
       </div>
@@ -51,7 +57,7 @@ const GetImage = () => {
           <button
             className="py-[0.625rem] font-subHeader text-white px-[0.9375rem] bg-gradient-to-br from-teal-400 to-cyan-800 hover:shadow-lg hover:scale-105 duration-300 rounded-lg uppercase"
             onClick={() => {
-              getImage(url);
+              getImage(prompt);
             }}
           >
             Generate
@@ -74,27 +80,19 @@ const GetImage = () => {
           <button
             className="py-[0.625rem] font-subHeader text-white px-[0.9375rem] bg-gradient-to-br from-teal-400 to-cyan-800 hover:shadow-lg hover:scale-105 duration-300 rounded-lg uppercase"
             onClick={() => {
-              getImage(url);
+              getImage(prompt);
             }}
           >
             Generate
           </button>
         </div>
       </div>
-      <div className="w-[70%] h-[15rem] md:h-[30rem] lg:h-[37.5rem] overflow-hidden bg-gradient-to-br from-teal-900 via-teal-500 to-lime-300  my-[5rem] rounded-lg flex items-center justify-center font-subHeader lg:text-[2rem]">
+      <div className="w-[70%] h-[15rem] md:h-[30rem] lg:h-[37.5rem] overflow-hidden bg-white my-[5rem] rounded-lg flex items-center justify-center font-subHeader lg:text-[2rem]">
         {isLoading ? (
-          <Audio
-            height="80"
-            width="80"
-            radius="9"
-            color="green"
-            ariaLabel="loading"
-            wrapperStyle
-            wrapperClass
-          />
+          <CircleLoader color="#36d7b7" />
         ) : imageUrl ? (
           <img
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fit"
             src={imageUrl}
             alt="Image"
           />

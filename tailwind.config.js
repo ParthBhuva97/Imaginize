@@ -9,7 +9,8 @@ export default {
     },
     fontFamily:{
       header : ['Wix Madefor Display', 'sans-serif'],
-      subHeader : ['Albert Sans', 'sans-serif']
+      subHeader : ['Albert Sans', 'sans-serif'],
+      header2 : ['Elsie', 'cursive']
     },
     letterSpacing:{
       widest : '3em'

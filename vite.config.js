@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server:{
     '/api': {
-      target: 'https://6432-35-193-68-31.ngrok-free.app/',
-      changeOrigin: true,
+      target: 'https://8bd6-35-245-66-64.ngrok-free.app',
+      changeOrigin: false,
       rewrite: (path) => path.replace(/^\/api/, ''),
     },
   }
